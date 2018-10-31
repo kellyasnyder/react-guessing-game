@@ -4,26 +4,82 @@
 
 body {
   margin: auto;
-  width: 50%;
-  padding-top: 50px;
-  font-family: sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
   text-align: center;
+  color: #672E3B;
 }
 
 button {
   padding: 15px;
-  margin: 10px 10px 20px ;
-  border-radius: 15px;
+  margin: 10px 10px 20px;
+  border-radius: 1px;
   text-transform: uppercase;
   width: 100px;
   transition: 0.3s ease-in-out;
-}
-
-button:nth-child(last) {
-  margin-top: 50px;
+  background-color: #EAE6DA;
 }
 
 button:hover {
-  background-color: #ccc;
+  background-color: #F0EDE5;
+}
+
+input[type=text]{
+  border-radius: 1px;
+  padding: 20px;
+  background-color: #EAE6DA;
+  width: 300px;
+  margin-right: 25px;
+}
+
+input[type=submit]{
+  border-radius: 1px;
+  padding: 20px;
+  background-color: #EAE6DA;
+  width: 100px;
+  margin-right: 25px;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 50% [col-start]);
+}
+
+.left {
+  margin: auto;
+  background-color: #F0EDE5;
+  min-height: 100vh;
+  min-width: 50vw;
+}
+
+.difficultyButtons {
+  margin-top: 100px;
+}
+
+h1, h2 {
+  margin-top: 150px;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+.scores {
+  margin-top: 100px;
+  text-transform: uppercase;
+}
+
+.resetButton {
+  margin-top: 200px;
+  width: 150px;
+}
+
+.right {
+  margin: auto;
+  background-color: #EAE6DA;
+  min-height: 100vh;
+  min-width: 50vw;
 }

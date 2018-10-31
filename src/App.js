@@ -9,8 +9,8 @@ class App extends Component {
       tries: 0,
       standardGames: 0,
       expertGames: 0,
-      standardHigh: null,
-      expertHigh: null,
+      standardHigh: 0,
+      expertHigh: 0,
       number: null,
       guess: null,
       message: "",
@@ -20,7 +20,15 @@ class App extends Component {
   }
 
   resetGame = () => {
-    this.setState(this.baseState)
+    this.setState({
+      difficulty: "",
+      guess: null,
+      number: null,
+      message: "",
+      tries: 0,
+      expertHigh: 0,
+      standardHigh: 0
+    });
   }
 
   defaultValues = () => {
@@ -114,18 +122,26 @@ class App extends Component {
     
   render () {
     return(
-      <div className="App">
-        <h1>{this.state.title}</h1>
-        <button onClick={this.standardGame}>Standard</button>
-        <button onClick={this.expertGame}>Expert</button>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" id="input" value={this.state.value} onChange={this.handleChange} placeholder="Enter guess here" />
-          <input type="submit" value="Submit" onClick={this.actualGame}/>
-        </form>
-        <h2>{this.state.message}</h2>
-        <h3>Your high score:</h3>
-        <h4>{this.state.expertHigh}</h4>
-        <button onClick={this.resetGame}>Reset</button>
+      <div className="grid">
+        <section className="left">
+          <button onClick={this.standardGame} className="difficultyButtons">Standard</button>
+          <button onClick={this.expertGame} className="difficultyButtons">Expert</button>
+          <h1>{this.state.title}</h1>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" id="input" value={this.state.value} onChange={this.handleChange} placeholder="Enter guess here" />
+            <input type="submit" value="Guess" onClick={this.actualGame}/>
+          </form>
+          <button onClick={this.resetGame} className="resetButton">Reset Game</button>
+        </section>
+        <section className="right">
+          <div className="scores">
+            <p>Standard high score: {this.state.standardHigh}</p>
+            <p>Expert high score: {this.state.expertHigh}</p>
+          </div>
+          <h2>Your last guess was:</h2>
+          <h3>{this.state.guess}</h3>
+          <h4>{this.state.message}</h4>
+        </section>
       </div>
     );
   }
